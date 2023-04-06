@@ -12,24 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Date;
 
 @SpringBootApplication
-public class SpringBatchApplication implements CommandLineRunner {
+public class SpringBatchApplication {
 
-	@Autowired
-	private JobLauncher jobLauncher;
-
-	@Autowired
-	private Job job;
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBatchApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		JobParameters jobParameters = new JobParametersBuilder()
-				.addString("nombre","Santiago")
-				.addDate("fecha", new Date())
-				.toJobParameters();
-
-		jobLauncher.run(job, jobParameters);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBatchApplication.class, args);
+    }
 }
